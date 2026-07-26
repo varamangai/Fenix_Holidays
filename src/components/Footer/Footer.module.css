@@ -73,7 +73,7 @@
 }
 
 .accentLine {
-  width: 9rem;
+  /* width: rem; */
   height: 0.35rem;
   margin-top: 1.5rem;
   border-radius: var(--radius-pill);

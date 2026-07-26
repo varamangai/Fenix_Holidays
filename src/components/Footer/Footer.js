@@ -7,15 +7,14 @@ const quickLinks = [
   { label: "About", href: "#about" },
   { label: "Destinations", href: "#destinations" },
   { label: "Packages", href: "#packages" },
-  { label: "Gallery", href: "#gallery" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
   { label: "Instagram", href: siteData.social.instagram },
   { label: "WhatsApp", href: `https://wa.me/91${siteData.contact.phone}` },
-  { label: "YouTube", href: "#" },
 ];
 
 export default function Footer() {

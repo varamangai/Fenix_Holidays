@@ -42,7 +42,7 @@ export default function Hero() {
               <span aria-hidden="true">↗</span>
             </a>
             <a className={`${styles.secondaryAction} button`} href="#packages">
-              Explore Packages
+              Explore Destinations
             </a>
           </div>
 
