@@ -1,0 +1,222 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(249, 199, 79, 0.2), transparent 22rem),
+    linear-gradient(180deg, #fff 0%, #f2faf7 100%);
+}
+
+.section::after {
+  position: absolute;
+  right: -9rem;
+  bottom: -12rem;
+  width: 28rem;
+  aspect-ratio: 1;
+  border: 4rem solid rgba(20, 156, 152, 0.07);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.heading {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.visible .heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--color-teal-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin-bottom: 1rem;
+  color: var(--color-dark-green);
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.subtitle {
+  max-width: 39rem;
+  margin: 0 auto;
+  color: #58736c;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(20, 61, 53, 0.1);
+  border-radius: 1.8rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1.25rem 3.5rem rgba(20, 61, 53, 0.1);
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    box-shadow 350ms ease,
+    transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 700ms ease;
+  transition-delay: calc(var(--card-index) * 120ms);
+}
+
+.visible .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible .card:hover {
+  box-shadow: 0 2rem 4.5rem rgba(20, 61, 53, 0.18);
+  transform: translateY(-0.6rem);
+}
+
+.scene {
+  position: relative;
+  height: clamp(15rem, 25vw, 20rem);
+  overflow: hidden;
+  background: linear-gradient(145deg, #5ccbc4 0%, #d9f6e9 55%, #ffe39a 100%);
+  isolation: isolate;
+}
+
+.scene::after {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: linear-gradient(180deg, rgba(10, 48, 41, 0.04), rgba(10, 48, 41, 0.44));
+  content: "";
+}
+
+.sceneImage {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card:hover .sceneImage {
+  transform: scale(1.08);
+}
+
+.stateLabel {
+  position: absolute;
+  z-index: 8;
+  bottom: 1.2rem;
+  left: 1.4rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.content {
+  padding: clamp(1.3rem, 2.5vw, 1.75rem);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.titleRow h3 {
+  margin: 0;
+  color: var(--color-dark-green);
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.description {
+  min-height: 3.2em;
+  margin-bottom: 1.25rem;
+  color: #5d746f;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+  padding: 1.1rem 0;
+  border-block: 1px solid var(--color-border);
+  list-style: none;
+}
+
+.featured li {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.45rem;
+  color: #385a52;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.featured li span {
+  width: 0.42rem;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  box-shadow: 0 0 0 3px rgba(249, 199, 79, 0.22);
+}
+
+@media (max-width: 64rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.625rem);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 43rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .scene {
+    height: 15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heading,
+  .card {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,14 @@
+export { default as Navbar } from "./Navbar";
+export { default as Hero } from "./Hero";
+export { default as BrandIntro } from "./BrandIntro";
+export { default as QuickHighlights } from "./QuickHighlights";
+export { default as About } from "./About";
+export { default as PopularDestinations } from "./PopularDestinations";
+export { default as FeaturedPackages } from "./FeaturedPackages";
+export { default as WhyChooseUs } from "./WhyChooseUs";
+export { default as Reviews } from "./Reviews";
+export { default as Gallery } from "./Gallery";
+export { default as Contact } from "./Contact";
+export { default as Footer } from "./Footer";
+export { default as InstagramButton } from "./InstagramButton";
+export { default as WhatsAppButton } from "./WhatsAppButton";

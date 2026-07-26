@@ -1,0 +1,99 @@
+.button {
+  position: fixed;
+  right: max(1.45rem, env(safe-area-inset-right));
+  bottom: calc(max(1.6rem, env(safe-area-inset-bottom)) + 4.65rem);
+  z-index: 50;
+  display: grid;
+  width: 3.85rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: var(--color-white);
+  background:
+    radial-gradient(circle at 32% 96%, #ffd600 0 20%, transparent 48%),
+    radial-gradient(circle at 12% 100%, #ff7a00 0 30%, transparent 58%),
+    radial-gradient(circle at 100% 0, #7638fa 0 38%, transparent 67%),
+    linear-gradient(135deg, #d300c5, #ff3040);
+  box-shadow:
+    0 1.1rem 2.5rem rgba(10, 54, 45, 0.26),
+    0.25rem 0.3rem 0 var(--color-yellow);
+  text-decoration: none;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.button:hover {
+  box-shadow:
+    0 1.25rem 2.8rem rgba(10, 54, 45, 0.3),
+    0.1rem 0.14rem 0 var(--color-yellow);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.button svg {
+  width: 2.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.button .dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.tooltip {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.7rem);
+  width: max-content;
+  max-width: 9rem;
+  padding: 0.48rem 0.7rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-dark-green);
+  background: var(--color-white);
+  box-shadow: 0 0.75rem 1.8rem rgba(10, 54, 45, 0.16);
+  font-size: 0.76rem;
+  font-weight: 900;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.35rem, -50%);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.tooltip::after {
+  position: absolute;
+  top: 50%;
+  right: -0.35rem;
+  width: 0.7rem;
+  aspect-ratio: 1;
+  background: var(--color-white);
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.button:hover .tooltip,
+.button:focus-visible .tooltip {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 4px;
+}
+
+@media (max-width: 38rem) {
+  .button {
+    right: max(0.95rem, env(safe-area-inset-right));
+    bottom: calc(max(1.1rem, env(safe-area-inset-bottom)) + 3.8rem);
+    width: 3.15rem;
+  }
+
+  .button svg {
+    width: 1.72rem;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}

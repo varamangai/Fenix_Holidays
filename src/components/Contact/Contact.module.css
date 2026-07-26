@@ -1,0 +1,351 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(3rem, 6vw, 5.4rem);
+  color: var(--color-white);
+  background:
+    radial-gradient(circle at 10% 15%, rgba(20, 156, 152, 0.36), transparent 26rem),
+    radial-gradient(circle at 90% 90%, rgba(249, 199, 79, 0.14), transparent 24rem),
+    var(--color-dark-green);
+}
+
+.section::before {
+  position: absolute;
+  top: -12rem;
+  right: -10rem;
+  width: 30rem;
+  aspect-ratio: 1;
+  border: 4.5rem solid rgba(255, 255, 255, 0.035);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.heading {
+  position: relative;
+  max-width: 50rem;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(1.3rem);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.visible .heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  margin-bottom: 0.7rem;
+  color: var(--color-yellow);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  margin-bottom: 1rem;
+  color: var(--color-white);
+  font-size: clamp(2.6rem, 5.7vw, 5rem);
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.heading > p:last-child {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+}
+
+.bookingPanel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
+  max-width: 68rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(1.5rem, 4vw, 2.6rem);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 700ms ease 100ms, transform 700ms ease 100ms;
+}
+
+.visible .bookingPanel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contactSide {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(20, 156, 152, 0.26), transparent 55%),
+    rgba(9, 43, 37, 0.45);
+}
+
+.contactSide::after {
+  position: absolute;
+  right: -5rem;
+  bottom: -6rem;
+  width: 14rem;
+  aspect-ratio: 1;
+  border: 2rem dotted rgba(249, 199, 79, 0.09);
+  border-radius: 50%;
+  content: "";
+}
+
+.contactIntro {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.contactIntro > span,
+.formHeading > span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--color-yellow);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contactIntro h3,
+.formHeading h3 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.contactIntro p,
+.formHeading p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.86rem;
+}
+
+.contactList {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contactCard {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.075);
+  text-decoration: none;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.contactCard:hover {
+  background: rgba(255, 255, 255, 0.13);
+  transform: translateX(0.25rem);
+}
+
+.contactIcon {
+  display: grid;
+  width: 2.65rem;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.8rem;
+  color: var(--color-dark-green);
+  background: var(--color-yellow);
+}
+
+.contactIcon svg {
+  width: 1.25rem;
+}
+
+.contactCard > span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+.contactCard small {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactCard strong {
+  overflow-wrap: anywhere;
+  color: var(--color-white);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.formSide {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+.formHeading {
+  margin-bottom: 1.6rem;
+}
+
+.formHeading > span {
+  color: var(--color-teal-dark);
+}
+
+.formHeading h3 {
+  color: var(--color-dark-green);
+}
+
+.formHeading p {
+  color: #647b75;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form label {
+  display: grid;
+  min-width: 0;
+  gap: 0.4rem;
+}
+
+.form label > span {
+  color: var(--color-dark-green);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d9e7e3;
+  border-radius: 0.85rem;
+  outline: none;
+  color: var(--color-text);
+  background: #f7fbfa;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition);
+}
+
+.form input,
+.form select {
+  min-height: 3.15rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.form textarea {
+  min-height: 6.5rem;
+  padding: 0.75rem 0.85rem;
+  resize: vertical;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: var(--color-teal);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(20, 156, 152, 0.12);
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #91a29e;
+}
+
+.messageField,
+.form button,
+.formNote {
+  grid-column: 1 / -1;
+}
+
+.form button {
+  display: flex;
+  min-height: 3.35rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.8rem 0.7rem 1.2rem;
+  border: 0;
+  border-radius: 1rem;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-teal-dark), var(--color-dark-green));
+  box-shadow: 0.28rem 0.34rem 0 var(--color-yellow);
+  font-size: 0.85rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.form button:hover {
+  box-shadow: 0.12rem 0.16rem 0 var(--color-yellow);
+  transform: translateY(-2px);
+}
+
+.form button span {
+  display: grid;
+  width: 2.1rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-dark-green);
+  background: var(--color-yellow);
+  font-size: 1.15rem;
+}
+
+.formNote {
+  color: #7a8e89;
+  font-size: 0.66rem;
+  text-align: center;
+}
+
+@media (max-width: 52rem) {
+  .bookingPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .contactList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .contactList,
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .messageField,
+  .form button,
+  .formNote {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heading,
+  .bookingPanel {
+    opacity: 1;
+    transform: none;
+  }
+}

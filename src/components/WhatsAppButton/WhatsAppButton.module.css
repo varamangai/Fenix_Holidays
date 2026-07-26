@@ -1,0 +1,89 @@
+.button {
+  position: fixed;
+  right: max(1.45rem, env(safe-area-inset-right));
+  bottom: max(1.6rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  display: grid;
+  width: 3.85rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: var(--color-white);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.28), transparent 35%),
+    #25d366;
+  box-shadow:
+    0 1.1rem 2.5rem rgba(10, 54, 45, 0.26),
+    0.25rem 0.3rem 0 var(--color-yellow);
+  text-decoration: none;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.button:hover {
+  box-shadow:
+    0 1.25rem 2.8rem rgba(10, 54, 45, 0.3),
+    0.1rem 0.14rem 0 var(--color-yellow);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.button svg {
+  width: 2.15rem;
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 0.7rem);
+  top: 50%;
+  width: max-content;
+  max-width: 9rem;
+  padding: 0.48rem 0.7rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-dark-green);
+  background: var(--color-white);
+  box-shadow: 0 0.75rem 1.8rem rgba(10, 54, 45, 0.16);
+  font-size: 0.76rem;
+  font-weight: 900;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.35rem, -50%);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.tooltip::after {
+  position: absolute;
+  top: 50%;
+  right: -0.35rem;
+  width: 0.7rem;
+  aspect-ratio: 1;
+  background: var(--color-white);
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.button:hover .tooltip,
+.button:focus-visible .tooltip {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 4px;
+}
+
+@media (max-width: 38rem) {
+  .button {
+    right: max(0.95rem, env(safe-area-inset-right));
+    bottom: max(1.1rem, env(safe-area-inset-bottom));
+    width: 3.15rem;
+  }
+
+  .button svg {
+    width: 1.72rem;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}

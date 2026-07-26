@@ -1,0 +1,227 @@
+.section {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(249, 199, 79, 0.22), transparent 19rem),
+    linear-gradient(180deg, var(--color-white), #f1faf7);
+}
+
+.section::before,
+.section::after {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.section::before {
+  top: -15rem;
+  right: -11rem;
+  width: 32rem;
+  aspect-ratio: 1;
+  border: 5rem solid rgba(20, 156, 152, 0.09);
+}
+
+.section::after {
+  bottom: -13rem;
+  left: -9rem;
+  width: 26rem;
+  aspect-ratio: 1;
+  background: rgba(249, 199, 79, 0.14);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 61rem;
+  min-height: 30rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(20, 61, 53, 0.1);
+  border-radius: clamp(2rem, 5vw, 3.5rem);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 2.2rem 5rem rgba(20, 61, 53, 0.15),
+    inset 0 1px 0 var(--color-white);
+  backdrop-filter: blur(10px);
+}
+
+.card::before {
+  position: absolute;
+  top: -7rem;
+  left: -6rem;
+  width: 26rem;
+  height: 22rem;
+  border-radius: 42% 58% 60% 40% / 55% 35% 65% 45%;
+  background: var(--color-yellow);
+  content: "";
+  transform: rotate(-12deg);
+}
+
+.logoFrame {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+  padding: 0.65rem;
+  border: 5px solid var(--color-white);
+  border-radius: 2.3rem;
+  background: var(--color-white);
+  box-shadow:
+    0 1.5rem 3rem rgba(20, 61, 53, 0.2),
+    0.55rem 0.65rem 0 var(--color-teal);
+  transform: rotate(-3deg);
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  border-radius: 1.7rem;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--color-teal-dark);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  margin-bottom: 1rem;
+  color: var(--color-dark-green);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.subtitle {
+  max-width: 31rem;
+  margin-bottom: 1.5rem;
+  color: #506e67;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+.founder {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-dark-green);
+  background: rgba(249, 199, 79, 0.32);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.phoneButton {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.2rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  color: var(--color-white);
+  background: var(--color-dark-green);
+  box-shadow: 0.35rem 0.4rem 0 var(--color-yellow);
+  font-weight: 900;
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.phoneButton:hover {
+  background: var(--color-teal-dark);
+  box-shadow: 0.18rem 0.22rem 0 var(--color-yellow);
+  transform: translateY(-2px);
+}
+
+.sunShape {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  border: 0.75rem dotted rgba(249, 199, 79, 0.7);
+  border-radius: 50%;
+}
+
+.orbitShape {
+  position: absolute;
+  right: -5rem;
+  bottom: -6rem;
+  width: 17rem;
+  aspect-ratio: 1;
+  border: 2.5rem solid rgba(20, 156, 152, 0.1);
+  border-radius: 50%;
+}
+
+@media (max-width: 48rem) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 1.25rem 2.5rem;
+    text-align: center;
+  }
+
+  .card::before {
+    top: -10rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(-8deg);
+  }
+
+  .logoFrame {
+    width: min(75vw, 15rem);
+  }
+
+  .subtitle {
+    margin-inline: auto;
+  }
+
+  .phoneButton {
+    margin-inline: auto;
+  }
+
+  .sunShape {
+    top: 45%;
+    right: -1rem;
+    width: 3.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .card {
+    border-radius: 2rem;
+  }
+
+  .logoFrame {
+    width: min(72vw, 12.5rem);
+    border-radius: 1.7rem;
+  }
+
+  .logo {
+    border-radius: 1.2rem;
+  }
+}
