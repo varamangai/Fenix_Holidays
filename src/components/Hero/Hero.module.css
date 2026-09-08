@@ -257,8 +257,9 @@
 }
 
 .cardKarnataka {
-  right: 5%;
-  bottom: 0.5rem;
+  z-index: 2;
+  right: 10%;
+  bottom: 1rem;
   transform: rotate(2deg);
 }
 
@@ -312,9 +313,9 @@
 
 .ticket {
   position: absolute;
-  z-index: 3;
-  bottom: 6.5rem;
-  left: 34%;
+  z-index: 4;
+  bottom: 7.5rem;
+  left: 15%;
   display: grid;
   width: 8.5rem;
   padding: 0.75rem;
